@@ -1,7 +1,7 @@
 {
   "name": "Varsha's Growth Hub",
   "short_name": "Growth Hub",
-  "description": "Affordable career mentorship, resume help, mock interviews and real projects.",
+  "description": "Career guidance in your own language: mentorship, resume help, mock interviews and real projects.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F4F7F3",

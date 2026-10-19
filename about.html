@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About · Growth Hub</title>
+<meta name="description" content="Why Varsha started Growth Hub, and what makes it different.">
+<meta name="theme-color" content="#0F5C4A">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+Telugu:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<main>
+  <section class="sec">
+    <div class="wrap founder">
+      <aside class="founder-card">
+        <div class="monogram" aria-hidden="true">VK</div>
+        <div>
+          <div class="name">Varsha Kakumanu</div>
+          <div style="opacity:.85">Founder, Growth Hub</div>
+        </div>
+        <div class="facts">
+          <div><span>Started as</span><span>Web developer</span></div>
+          <div><span>In IT</span><span>5 years</span></div>
+          <div><span>Today</span><span>Multinational company</span></div>
+        </div>
+        <a id="founderLinkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn profile ↗</a>
+      </aside>
+      <div class="story">
+        <span class="eyebrow">Why Growth Hub exists</span>
+        <h1 style="font-size:clamp(2rem,4.4vw,3rem)">It started with my own career</h1>
+        <p>I started as a web developer and spent years learning, working through challenges and understanding what it takes to grow. Over five years in IT, I saw how much practical learning, clear communication and good guidance matter, and how much it helps to learn from people who have already walked the path.</p>
+        <p>Career growth isn't only about finishing courses or adding technologies. It's about understanding how the industry works, explaining your ideas with confidence, building meaningful projects and finding the right people to learn from.</p>
+        <p class="pull">You don't need to spend tens of thousands of rupees to take your next step. Sometimes the right mentor, an honest resume review or a supportive peer group is enough.</p>
+        <p>Once I reached a stable position in a multinational company, I wanted to make that journey easier for others. Growth Hub brings people, knowledge and opportunities together in one community where you can ask questions without hesitation, in your own language, and grow at a pace that suits you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec band">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">What makes us different</span>
+        <h2>Built on honest, practical help</h2>
+      </div>
+      <div class="diff">
+        <div><h3>Your language comes first</h3><p>Mentors and peers who speak your language, so you can ask the questions you'd hesitate to ask in English.</p></div>
+        <div><h3>Affordable by design</h3><p>Pay only for the help you need. Your roadmap shows your exact plan and what it costs before you commit to anything.</p></div>
+        <div><h3>Industry-driven learning</h3><p>Guidance from people who do the work, focused on real workplace expectations.</p></div>
+        <div><h3>Community over competition</h3><p>Peers help peers. Questions are welcome at every level.</p></div>
+        <div><h3>Personalised guidance</h3><p>Learn the skills your target role needs, not everything at once.</p></div>
+        <div><h3>Honest expectations</h3><p>No false promises of guaranteed jobs or placements. We never charge you to get a job.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="disclaimer">
+        <strong>Important</strong>
+        <p>Growth Hub offers career guidance, mentorship, learning support, networking and project collaboration. It does not guarantee employment, placements, referrals, interview selection or specific career outcomes. Results depend on your effort, skill development, eligibility and market conditions. Fees, deliverables, session durations, cancellation policies and mentor availability are shared before payment.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/layout.js"></script>
+<script>
+const founder = mentorById("varsha");
+if (founder && founder.linkedin){ const a = $("#founderLinkedin"); a.href = founder.linkedin; a.hidden = false; }
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact · Growth Hub</title>
+<meta name="description" content="Book a free career consultation with Growth Hub.">
+<meta name="theme-color" content="#0F5C4A">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+Telugu:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<main>
+  <section class="sec">
+    <div class="wrap two">
+      <div style="display:grid;gap:22px;align-content:start">
+        <span class="eyebrow">Get in touch</span>
+        <h1 style="font-size:clamp(2rem,4.4vw,3rem)">Book your free career consultation</h1>
+        <p class="lede">Tell us a little about yourself. We'll prepare a message you can send to Varsha in one tap.</p>
+        <div class="empty">
+          <h3>Want a full plan first?</h3>
+          <p>The roadmap tool gives you week-by-week steps, a mentor match and a cost comparison in about 2 minutes.</p>
+          <a class="btn btn-ghost" href="roadmap.html">Build my roadmap</a>
+        </div>
+      </div>
+      <form class="form" id="contactForm" novalidate>
+        <div class="row2">
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" placeholder="e.g. Priya Reddy"></div>
+          <div class="field"><label for="f-lang">Your language</label><select id="f-lang" name="lang"></select></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-stage">Where are you now?</label><select id="f-stage" name="stage"></select></div>
+          <div class="field"><label for="f-field">Goal</label><select id="f-field" name="field"></select></div>
+        </div>
+        <div class="field"><label for="f-topic">I'm interested in</label><select id="f-topic" name="topic"></select></div>
+        <div class="field"><label for="f-mentor">Preferred mentor <span class="small">(optional)</span></label><select id="f-mentor" name="mentor"></select></div>
+        <div class="field"><label for="f-msg">Anything else? <span class="small">(optional)</span></label><textarea id="f-msg" name="msg" rows="3" placeholder="Your biggest challenge right now"></textarea></div>
+        <p class="err" id="formErr" hidden>Add your name so we can prepare your message.</p>
+        <button class="btn btn-primary" type="submit" style="justify-self:start">Prepare my message</button>
+        <div class="out" id="out" hidden data-copy-scope>
+          <strong>Your message is ready</strong>
+          <pre data-copy-src id="msgOut"></pre>
+          <div class="actions" id="sendBtns"></div>
+          <span class="small" data-copy-status role="status"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/contact.js"></script>
+</body>
+</html>

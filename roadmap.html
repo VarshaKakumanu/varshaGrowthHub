@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Career Roadmap · Growth Hub</title>
+<meta name="description" content="Build a free career roadmap in two minutes: your steps, a mentor in your language, and what you save compared with institutes.">
+<meta name="theme-color" content="#0F5C4A">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+Telugu:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Free career roadmap · about 2 minutes</span>
+      <h1>Figure out your next step</h1>
+      <p class="lede">Answer five quick questions. You'll get a roadmap for your target role, a mentor who speaks your language, and an honest comparison of what this costs here and elsewhere.</p>
+    </div>
+  </section>
+
+  <section style="padding-bottom:clamp(52px,8vw,96px)">
+    <div class="wrap">
+      <div class="wizard" id="wizard">
+        <ol class="progress" id="progress" aria-label="Progress"></ol>
+        <div class="panel" id="panel" aria-live="polite"></div>
+      </div>
+      <div class="result" id="result" hidden></div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/roadmap.js"></script>
+</body>
+</html>
