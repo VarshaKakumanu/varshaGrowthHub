@@ -3,15 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Varsha's Growth Hub</title>
-<meta name="description" content="Career guidance in your own language. Mentorship, resume help, mock interviews and real projects with people who work in the industry.">
-<meta name="theme-color" content="#0F5C4A">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icon-192.png">
+<title>Rooting Careers · Career guidance in your own language</title>
+<meta name="description" content="Find where you stand in 3 minutes, get a week-by-week roadmap for your target IT role, and a mentor who speaks your language.">
+<meta name="theme-color" content="#F5B201">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+Telugu:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;600&family=Caveat:wght@700&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
@@ -19,91 +20,133 @@
   <section class="hero">
     <div class="wrap">
       <div class="hero-copy">
-        <span class="eyebrow">Varsha's Growth Hub · Career community</span>
-        <p class="tagline-te" lang="te">మీ భాషలోనే కెరీర్ మార్గదర్శనం</p>
-        <h1>Learn together. Build real skills. <span class="grow">Grow together.</span></h1>
-        <p class="lede">Mentorship, resume help, mock interviews and real projects with people who already work in the industry, in the language you think in.</p>
+        <span class="pill"><span class="dot" aria-hidden="true"></span>Free career check · 3 minutes · no sign-up</span>
+        <h1 data-split>Worried about your career? Let's map it out.</h1>
+        <p class="lede">See where you stand, get a week-by-week roadmap for your target role, and a mentor who speaks your language.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="roadmap.html">Build my career roadmap</a>
-          <a class="btn btn-ghost" href="mentors.html">Find a mentor in my language</a>
+          <a class="btn btn-primary" href="roadmap.html">Start my free career check <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="track.html">Find your track</a>
         </div>
-        <p class="hero-note">No placement promises. Just practical guidance, honest feedback and a community that helps.</p>
+        <ul class="trust" id="trust" aria-label="Why people trust us"></ul>
       </div>
-      <aside class="teaser" aria-label="What the roadmap tool gives you">
-        <div style="display:grid;gap:6px">
-          <span class="eyebrow">Free · about 2 minutes</span>
-          <h3>Your personal career roadmap</h3>
+      <div class="hero-visual" id="heroVisual" aria-label="Example of a personal career roadmap">
+        <div class="laptop" id="laptop">
+          <div class="screen" id="appScreen"></div>
+          <div class="lap-base" aria-hidden="true"></div>
         </div>
-        <ol>
-          <li><span>Tell us your language, goal and what's holding you back</span></li>
-          <li><span>Get a week-by-week roadmap for your target role</span></li>
-          <li><span>See a mentor who speaks your language and fits your field</span></li>
-          <li><span>Compare your plan's cost with institutes and paid platforms</span></li>
-        </ol>
-        <a class="btn btn-primary" href="roadmap.html">Start now</a>
-      </aside>
+        <div class="float f-score" aria-hidden="true"><small>Example · resume score</small><div class="row"><span class="big"><span data-count="62">62</span> → <span data-count="88">88</span></span><span class="up">+26</span></div></div>
+        <div class="float f-mentor" id="fMentor" aria-hidden="true"></div>
+        <div class="float f-mock" id="fMock" aria-hidden="true"></div>
+      </div>
     </div>
   </section>
 
-  <section class="band" aria-labelledby="lang-h">
-    <div class="wrap lang-strip">
-      <div style="display:grid;gap:6px">
-        <span class="eyebrow">Native language first</span>
-        <h2 id="lang-h" style="font-size:clamp(1.4rem,3vw,1.9rem)">Ask your questions the way you think</h2>
-        <p class="lede">Pick your language and we'll show mentors who speak it.</p>
+  <section class="sec band" aria-labelledby="sit-h" style="padding-block:clamp(56px,7vw,96px)">
+    <div class="wrap picker">
+      <div class="sec-head" style="margin-bottom:0">
+        <div><h2 id="sit-h">Which sounds most like you?</h2></div>
+        <p>Pick one and your career check starts with it filled in.</p>
       </div>
-      <div class="chips" id="langChips"></div>
+      <div class="sits" id="sits"></div>
+      <ul class="proof" id="proof" aria-label="At a glance"></ul>
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec" aria-labelledby="how-h">
+    <div class="wrap how-grid">
+      <div style="display:grid;gap:18px;align-content:start">
+        <h2 id="how-h">How it works</h2>
+        <p class="lede">From not knowing where to start to a plan you can act on, with a person who has done it. No sales pitch, no placement promises.</p>
+        <div class="actions"><a class="btn btn-primary" href="roadmap.html">Take the career check <span class="arr" aria-hidden="true">→</span></a></div>
+      </div>
+      <ol class="steps" id="steps">
+        <li><span class="n">1</span><h3>Take the career check</h3><p>Five quick questions and four real-life puzzles. See where you stand today.</p></li>
+        <li><span class="n">2</span><h3>Get your roadmap</h3><p>Week-by-week steps for your target role, with an honest cost comparison.</p></li>
+        <li><span class="n">3</span><h3>Send it to Varsha</h3><p>Share it on WhatsApp, by email or in the community group with one tap.</p></li>
+        <li><span class="n">4</span><h3>Grow with a mentor</h3><p>Matched by language first, then field. Your first consultation is free.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec band" aria-labelledby="svc-h">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">How it works</span>
-        <h2>Three steps, no sales pitch</h2>
-      </div>
-      <div class="how">
-        <div><b>01</b><h3>Build your roadmap</h3><p>Answer a few questions about your goal and struggles. You get a clear plan and an honest cost comparison.</p></div>
-        <div><b>02</b><h3>Send it to Varsha</h3><p>Share your roadmap on WhatsApp, by email or in the community group with one tap.</p></div>
-        <div><b>03</b><h3>Free consultation</h3><p>Talk it through, get matched with a mentor and start only with what you actually need.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec band">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">What we help with</span>
-        <h2>Focused help for the gaps you actually have</h2>
-        <p class="lede">You'll see your personal price in your roadmap, along with what the same help costs elsewhere.</p>
+        <div><h2 id="svc-h">Help for your real gaps</h2></div>
+        <p><span id="svcCount"></span>. Your personal price appears in your roadmap, next to what the same help costs elsewhere.</p>
       </div>
       <div class="grid3" id="services"></div>
     </div>
   </section>
 
-  <section class="sec">
-    <div class="wrap" id="weekly"></div>
-  </section>
-
-  <section class="sec band">
+  <section class="sec" id="play" aria-labelledby="play-h">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Meet the mentors</span>
-        <h2>Learn from people doing the work</h2>
+        <div><h2 id="play-h">Think you know how careers work?</h2></div>
+        <p>Six things most job seekers believe. Bust the myths, guess the real cost of a bootcamp, and see why so many people get stuck.</p>
       </div>
-      <div class="mentors" id="mentors"></div>
-      <p style="margin-top:22px"><a href="mentors.html" style="font-weight:700">See all mentors and filter by language →</a></p>
+      <div class="games">
+        <div class="game" id="mythGame" aria-live="polite"></div>
+        <div class="game" id="costGame" aria-live="polite"></div>
+      </div>
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec" style="padding-top:0" aria-label="Saturday sessions">
+    <div class="wrap" id="weekly"></div>
+  </section>
+
+  <section class="sec band" aria-labelledby="mentor-h">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Free to join</span>
-        <h2>Start with the community</h2>
-        <p class="lede">You don't need to book anything to join. Ask questions, get job updates and meet people on the same path.</p>
+        <div><h2 id="mentor-h">Mentors who speak your language</h2></div>
+        <a class="btn btn-ghost" href="mentors.html">See all mentors <span class="arr" aria-hidden="true">→</span></a>
       </div>
-      <div class="grid3" id="free"></div>
+      <div class="mentors" id="mentors"></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="lang-h">
+    <div class="wrap lang-strip">
+      <div>
+        <h2 id="lang-h">Ask in your own language</h2>
+        <p>Ask the questions you'd hesitate to ask in English. Pick a language and we'll show the mentors who speak it.</p>
+      </div>
+      <div class="chips" id="langChips"></div>
+    </div>
+  </section>
+
+  <section class="sec band" aria-label="A note from Varsha">
+    <div class="wrap note-wrap">
+      <div class="flip" tabindex="0" aria-label="Varsha at a glance. Hover or focus to flip.">
+        <div class="flip-inner">
+          <div class="flip-face flip-front"><span class="flip-mono">VK</span><span class="flip-name">Varsha Kakumanu</span><span class="flip-role">Founder, Rooting Careers</span><span class="flip-cta">Hover to flip</span></div>
+          <div class="flip-face flip-back"><dl class="facts"><div><dt>Started as</dt><dd>Web developer</dd></div><div><dt>In IT</dt><dd>5 years</dd></div><div><dt>Today</dt><dd>Multinational company</dd></div><div><dt>Mentors in</dt><dd>Telugu &amp; English</dd></div></dl></div>
+        </div>
+      </div>
+      <article class="founder-note" id="founderNote"></article>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="free-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><h2 id="free-h">Learn together. Grow together.</h2></div>
+        <p>Free to join, no booking needed. Ask questions, get job updates and meet people on the same path.</p>
+      </div>
+      <div class="free-grid" id="free"></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" aria-labelledby="cta-h">
+    <div class="wrap">
+      <div class="cta-panel">
+        <div class="cta-copy">
+          <h2 id="cta-h">Your career is a seed. Let's help it grow.</h2>
+          <p>Free career check, free first consultation, free Saturday sessions. Pay only for the help you actually need.</p>
+          <div class="actions"><a class="btn btn-primary" href="roadmap.html">Start my free career check <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-ghost" href="community.html">Join the community</a></div>
+        </div>
+        <div class="seed-to-bloom" id="seedToBloom" aria-hidden="true"></div>
+      </div>
     </div>
   </section>
 </main>
@@ -111,5 +154,7 @@
 <script src="assets/js/config.js"></script>
 <script src="assets/js/layout.js"></script>
 <script src="assets/js/home.js"></script>
+<script src="assets/js/vendor/motion.js"></script>
+<script src="assets/js/fx.js"></script>
 </body>
 </html>

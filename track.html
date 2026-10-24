@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Find Your Track · Rooting Careers</title>
+<meta name="description" content="Not sure which IT career suits you? Answer six quick questions and see which track fits, what the work is like, typical fresher pay and how to start.">
+<meta name="theme-color" content="#F5B201">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;600&family=Caveat:wght@700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>Find your track</h1>
+      <p class="lede">Not sure which IT career suits you? Six quick questions, then the tracks that fit you best, what the work is really like, typical fresher pay and your first step.</p>
+    </div>
+  </section>
+
+  <section style="padding-bottom:var(--gap-sec)">
+    <div class="wrap">
+      <div class="wizard" id="trackQuiz">
+        <ol class="progress" id="tqProgress" aria-label="Progress"></ol>
+        <div class="panel" id="tqPanel" aria-live="polite"></div>
+      </div>
+      <div class="result" id="tqResult" hidden></div>
+      <noscript><p class="lede">This tool needs JavaScript. You can still <a href="contact.html">book a free consultation</a> and talk it through with Varsha.</p></noscript>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/track.js"></script>
+<script src="assets/js/vendor/motion.js"></script>
+<script src="assets/js/fx.js"></script>
+</body>
+</html>

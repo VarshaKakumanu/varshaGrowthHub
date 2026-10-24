@@ -9,7 +9,7 @@ const chip = (group, val, label, sub) =>
   `<button type="button" class="chip" data-group="${group}" data-val="${esc(val)}" aria-pressed="${filter[group] === val}">${esc(label)}${sub ? `<span class="en">${esc(sub)}</span>` : ""}</button>`;
 
 function render(){
-  $("#langFilter").innerHTML = chip("lang", "", "All") + GH.languages.map(l => chip("lang", l.id, l.native, l.native !== l.id ? l.id : "")).join("");
+  $("#langFilter").innerHTML = chip("lang", "", "All") + GH.languages.map(l => chip("lang", l.id, l.id, l.native !== l.id ? l.native : "")).join("");
   $("#fieldFilter").innerHTML = chip("field", "", "All fields") + usedFields.map(f => chip("field", f.id, f.label)).join("");
 
   const list = GH.mentors.filter(m =>

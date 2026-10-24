@@ -1,4 +1,4 @@
-# Varsha's Growth Hub
+# Rooting Careers
 
 A static website: plain HTML, CSS and JavaScript with no build step. Open any `.html` file, or upload the folder to any static host (GitHub Pages, Netlify, Vercel, Cloudflare Pages).
 
@@ -6,6 +6,7 @@ A static website: plain HTML, CSS and JavaScript with no build step. Open any `.
 
 ```
 index.html          Home
+track.html          Find your track: a 6-question quiz that ranks career tracks and shows insights
 roadmap.html        Career roadmap tool (the only page that shows prices)
 mentors.html        Mentors, filtered by language first, then field
 community.html      Jobs channel, community group, Saturday sessions
@@ -17,6 +18,8 @@ assets/js/layout.js   Shared header, footer, menu and helpers
 assets/js/*.js        One script per page
 assets/css/site.css   All styles; colours are variables at the top
 sw.js                 Offline cache (bump CACHE when adding files)
+assets/js/fx.js       Hover, press and scroll effects (uses Motion, vendored in assets/js/vendor/motion.js;
+                      after updating the motion package run: npm run vendor:motion)
 ```
 
 ## Common changes (all in `assets/js/config.js`)
@@ -31,7 +34,11 @@ sw.js                 Offline cache (bump CACHE when adding files)
 | Add a career field / roadmap | Copy a block in `GH.fields` |
 | Add a struggle option | Add to `GH.struggles` and list the services it `adds` |
 | Change the Saturday session | `GH.weekly` |
+| Change the "Which sounds most like you?" answers on the home page | `GH.situations` (each one pre-fills the roadmap) |
+| Change how "Where you stand" rates Skills / Resume / Interviews / Network | `GH.insightAreas` |
 | Remove the "Launch prices" label | `GH.launchPricing = false` |
+| Change the Find your track questions or scoring | `GH.trackQuiz` (each answer adds points to field ids) |
+| Change a track's insights or fresher pay | `GH.trackInsights` and `GH.payNote` (re-check pay ranges now and then) |
 
 Empty links and contact details are hidden automatically.
 

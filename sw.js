@@ -1,11 +1,11 @@
 /* Network-first: visitors always get the latest version when online,
    and cached pages when offline. Bump CACHE when you add or rename files. */
-const CACHE = "growth-hub-v2";
+const CACHE = "rooting-careers-v1";
 const FILES = [
-  "./", "index.html", "roadmap.html", "mentors.html", "community.html", "about.html", "contact.html",
+  "./", "index.html", "track.html", "roadmap.html", "mentors.html", "community.html", "about.html", "contact.html",
   "assets/css/site.css",
-  "assets/js/config.js", "assets/js/layout.js", "assets/js/home.js", "assets/js/roadmap.js", "assets/js/mentors.js", "assets/js/contact.js",
-  "manifest.json", "icon.svg", "icon-192.png", "icon-512.png"
+  "assets/js/config.js", "assets/js/layout.js", "assets/js/home.js", "assets/js/track.js", "assets/js/roadmap.js", "assets/js/mentors.js", "assets/js/contact.js", "assets/js/fx.js", "assets/js/vendor/motion.js",
+  "manifest.json", "favicon.png", "favicon.svg", "apple-touch-icon.png", "assets/img/logo.png", "assets/img/logo.svg", "icon-192.png", "icon-512.png"
 ];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES))); self.skipWaiting(); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k))))); self.clients.claim(); });
