@@ -1,0 +1,12 @@
+{
+  "name": "rooting-careers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rooting Careers: a static site with no build step. npm is only used to vendor the Motion library (npm run vendor:motion); the vendored file is committed.",
+  "dependencies": {
+    "motion": "14.1.0"
+  },
+  "scripts": {
+    "vendor:motion": "node -e \"require('fs').copyFileSync('node_modules/motion/dist/motion.js','assets/js/vendor/motion.js')\""
+  }
+}

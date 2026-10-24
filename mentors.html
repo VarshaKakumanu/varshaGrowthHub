@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mentors · Growth Hub</title>
+<title>Mentors · Rooting Careers</title>
 <meta name="description" content="Find a mentor who speaks your language and works in the role you want.">
-<meta name="theme-color" content="#0F5C4A">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="theme-color" content="#F5B201">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+Telugu:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;600&family=Caveat:wght@700&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
 <main>
   <section class="page-hero">
     <div class="wrap">
-      <span class="eyebrow">Meet the mentors</span>
-      <h1>Learn from people doing the work, in your language</h1>
-      <p class="lede">Choose your language first, then your field. Every mentor works in the role they guide you towards.</p>
+      <h1>Mentors who speak your language</h1>
+      <p class="lede">Learn from people doing the work. Choose your language first, then your field.</p>
     </div>
   </section>
 
@@ -31,7 +31,7 @@
         <div class="row"><span class="label eyebrow">Field</span><div class="chips" id="fieldFilter"></div></div>
       </div>
       <div class="mentors" id="list"></div>
-      <div class="grid3" style="margin-top:28px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))">
+      <div class="grid3" style="margin-top:clamp(48px,6vw,96px)">
         <div class="empty">
           <h3>Need a mentor in another field or language?</h3>
           <p>Tell us the role, skill or language you need, like testing, cloud, HR or Tamil. We'll look for a mentor for you.</p>
@@ -50,5 +50,7 @@
 <script src="assets/js/config.js"></script>
 <script src="assets/js/layout.js"></script>
 <script src="assets/js/mentors.js"></script>
+<script src="assets/js/vendor/motion.js"></script>
+<script src="assets/js/fx.js"></script>
 </body>
 </html>

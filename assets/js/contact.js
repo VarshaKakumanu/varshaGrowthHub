@@ -1,5 +1,5 @@
 /* Contact page. Prefills from links like
-   contact.html?mentor=rani  |  ?topic=mentor-request&lang=Tamil  |  ?topic=become-mentor */
+   contact.html?mentor=rani  |  ?topic=mentor-request&lang=Tamil  |  ?topic=become-mentor  |  ?topic=consult&field=data */
 
 const TOPICS = [
   {id:"consult", label:"Free career consultation"},
@@ -9,7 +9,7 @@ const TOPICS = [
   {id:"project", label:GH.services.project.name},
   {id:"weekly", label:`${GH.weekly.title} (${GH.weekly.day})`},
   {id:"mentor-request", label:"Request a mentor in a specific field or language"},
-  {id:"become-mentor", label:"Join Growth Hub as a mentor"}
+  {id:"become-mentor", label:"Join Rooting Careers as a mentor"}
 ];
 
 const options = (list, sel) => list.map(o => `<option value="${esc(o.v)}"${o.v === sel ? " selected" : ""}>${esc(o.l)}</option>`).join("");
@@ -17,9 +17,9 @@ const p = new URLSearchParams(location.search);
 const saved = store.get("gh-roadmap") || {};
 const mentorParam = p.get("mentor");
 
-$("#f-lang").innerHTML = options(GH.languages.map(l => ({v:l.id, l:l.native === l.id ? l.id : `${l.native} (${l.id})`})).concat([{v:"Other", l:"Other"}]), p.get("lang") || saved.lang || "Telugu");
+$("#f-lang").innerHTML = options(GH.languages.map(l => ({v:l.id, l:l.id})).concat([{v:"Other", l:"Other"}]), p.get("lang") || saved.lang || "Telugu");
 $("#f-stage").innerHTML = options(GH.stages.map(s => ({v:s, l:s})), saved.stage || "Fresher / recent graduate");
-$("#f-field").innerHTML = options(GH.fields.map(f => ({v:f.id, l:f.label})), saved.field || "unsure");
+$("#f-field").innerHTML = options(GH.fields.map(f => ({v:f.id, l:f.label})), p.get("field") || saved.field || "unsure");
 $("#f-topic").innerHTML = options(TOPICS.map(t => ({v:t.id, l:t.label})), p.get("topic") || (mentorParam ? "mentor" : "consult"));
 $("#f-mentor").innerHTML = options([{v:"", l:"No preference"}].concat(GH.mentors.map(m => ({v:m.id, l:m.name}))), mentorParam || "");
 if (saved.name) $("#f-name").value = saved.name;
@@ -34,7 +34,7 @@ $("#contactForm").addEventListener("submit", e => {
   const topic = TOPICS.find(t => t.id === f.topic);
   const asMentor = f.topic === "become-mentor";
   const mentor = mentorById(f.mentor);
-  const closing = asMentor ? "I'd like to join Growth Hub as a mentor."
+  const closing = asMentor ? "I'd like to join Rooting Careers as a mentor."
     : f.topic === "consult" ? "I'd like to book a free career consultation."
     : "Could we set up a time to talk?";
   const lines = [
@@ -50,7 +50,7 @@ $("#contactForm").addEventListener("submit", e => {
   const message = lines.join("\n");
 
   $("#msgOut").textContent = message;
-  $("#sendBtns").innerHTML = sendOptions(message, `Growth Hub: ${topic.label} (${f.name.trim()})`);
+  $("#sendBtns").innerHTML = sendOptions(message, `Rooting Careers: ${topic.label} (${f.name.trim()})`);
   $("[data-copy-status]").textContent = "";
   $("#out").hidden = false;
   $("#out").scrollIntoView({behavior:"smooth", block:"nearest"});

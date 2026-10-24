@@ -3,35 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Community · Growth Hub</title>
+<title>Community · Rooting Careers</title>
 <meta name="description" content="Free career community: WhatsApp jobs channel, peer Q&A group and Saturday project and learning sessions.">
-<meta name="theme-color" content="#0F5C4A">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="theme-color" content="#F5B201">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+Telugu:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;600&family=Caveat:wght@700&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
 <main>
   <section class="page-hero">
     <div class="wrap">
-      <span class="eyebrow">Community · free to join</span>
       <h1>More than a booking page</h1>
-      <p class="lede">Growth Hub is a network of people helping each other grow. Join any time, even before you book anything.</p>
+      <p class="lede">Free to join. Rooting Careers is a network of people helping each other grow. Join any time, even before you book anything.</p>
     </div>
   </section>
 
-  <section style="padding-bottom:clamp(40px,6vw,64px)">
+  <section class="sec" style="padding-top:0" aria-label="Saturday sessions">
     <div class="wrap" id="weekly"></div>
   </section>
 
   <section class="sec band">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Join in</span>
         <h2>Ways to be part of it</h2>
       </div>
       <div class="grid3" id="eco"></div>
@@ -42,7 +41,7 @@
     <div class="wrap">
       <div class="disclaimer">
         <strong>Stay safe from job scams</strong>
-        <p>Real employers and recruiters never charge you for a job, interview or referral. If anyone in any group asks you to pay for a job, don't pay, and report it to the group admin. Growth Hub only charges for guidance services, and you always know what you're paying for before you pay.</p>
+        <p>Real employers and recruiters never charge you for a job, interview or referral. If anyone in any group asks you to pay for a job, don't pay, and report it to the group admin. Rooting Careers only charges for guidance services, and you always know what you're paying for before you pay.</p>
       </div>
     </div>
   </section>
@@ -66,5 +65,7 @@ $("#eco").innerHTML = ECO.map(e => {
   return `<article class="card"><span class="k">${esc(e.k)}</span><h3>${esc(e.t)}</h3><p>${esc(e.d)}</p>${foot ? `<div class="foot">${foot}</div>` : ""}</article>`;
 }).join("");
 </script>
+<script src="assets/js/vendor/motion.js"></script>
+<script src="assets/js/fx.js"></script>
 </body>
 </html>
