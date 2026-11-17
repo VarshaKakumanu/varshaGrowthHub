@@ -3,7 +3,8 @@
 
 const NAV = [
   {href:"index.html",     label:"Home"},
-  {href:"track.html",     label:"Find your track"},
+  {href:"stepup.html",    label:"Step Up"},
+  {href:"track.html",     label:"Find your track", footerOnly:true},  // Step Up covers this in the header
   {href:"roadmap.html",   label:"Career roadmap"},
   {href:"mentors.html",   label:"Mentors"},
   {href:"community.html", label:"Community"},
@@ -170,7 +171,7 @@ document.addEventListener("click", e => {
   header.innerHTML = `<div class="wrap">
     <a class="logo" href="index.html" aria-label="Rooting Careers home">${LOGO}Rooting Careers</a>
     <nav class="nav-links" id="navLinks" aria-label="Main">
-      ${NAV.filter(n => n.href !== "index.html").map(n => `<a href="${n.href}"${n.href === here ? ' aria-current="page"' : ""}>${n.label}</a>`).join("")}
+      ${NAV.filter(n => n.href !== "index.html" && !n.footerOnly).map(n => `<a href="${n.href}"${n.href === here ? ' aria-current="page"' : ""}>${n.label}</a>`).join("")}
     </nav>
     <div class="nav-actions">
       <a class="btn btn-ghost" href="contact.html?topic=consult">Talk to ${esc(GH.contact.founder)}</a>
