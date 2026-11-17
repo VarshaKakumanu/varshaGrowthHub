@@ -417,3 +417,192 @@ GH.growthLevels = [
   {min:5, name:"Budding",  text:"You're closer than you think. A few sharp moves will get you there."},
   {min:7, name:"Blooming", text:"You're ready. Let's polish and put you in front of the right roles."}
 ];
+
+/* ================================================================
+   STEP UP (stepup.html) — the guided career session with Varsha
+   Everything Varsha says and every option a visitor can pick lives here.
+   Tags link things together: interests, work-style picks and roles share
+   the same tag names (see GH.stepUp.tags), and roles that share a visitor's
+   tags rank higher. Pay figures are approximate; re-check them now and then.
+   ================================================================ */
+GH.stepUp = {
+  payNote: "Pay figures are approximate, from public salary guides and official pay scales checked in November 2026. They vary by city, company and skills.",
+
+  /* Tag names, with how Varsha describes them and the clue-board label. */
+  tags: {
+    investigate:{icon:"🔍", label:"Investigating",      phrase:"you enjoy spotting clues"},
+    tech:       {icon:"📱", label:"At ease with tech",  phrase:"you're at ease with tech"},
+    people:     {icon:"🤝", label:"Good with people",   phrase:"people come to you"},
+    serve:      {icon:"🏛️", label:"Wants to serve",     phrase:"you care about society"},
+    create:     {icon:"🎨", label:"Creative",           phrase:"you like making things look good"},
+    organise:   {icon:"📋", label:"Organised",          phrase:"you like things in order"},
+    numbers:    {icon:"📊", label:"Numbers person",     phrase:"numbers don't scare you"},
+    explain:    {icon:"🗣️", label:"Good explainer",     phrase:"you're good at explaining"},
+    build:      {icon:"🔧", label:"Builder and fixer",  phrase:"you like building and fixing"},
+    lead:       {icon:"🧭", label:"Takes charge",       phrase:"you like taking charge"}
+  },
+  /* Words in free text that point to a tag (lower case, partial words are fine). */
+  keywords: {
+    investigate:["crime","detective","mystery","thriller","puzzle","investigat","sherlock","clue","riddle","quiz","chess"],
+    tech:["phone","computer","laptop","gadget","coding","code","program","internet","tech","hack","gaming","video game"],
+    people:["help","friends","care","volunteer","listen","people","social","family","kids","children"],
+    serve:["serve","country","society","govern","police","army","civil","ias","ips","upsc","justice","nation","public"],
+    create:["draw","design","art","paint","craft","edit","video","photo","music","write","writing","fashion","decor","dance","sing","reel","instagram"],
+    organise:["plan","organis","organiz","list","manage","event","schedule","arrange"],
+    numbers:["math","maths","number","excel","data","stats","money","account","finance","budget","stock","share market"],
+    explain:["explain","teach","tuition","speak","debate","present","youtube","blog","tutor"],
+    build:["build","make","repair","fix","engineer","lego","assemble","diy","electronics","robot"],
+    lead:["lead","captain","head","in charge","class rep"]
+  },
+
+  moods: [
+    {id:"good",     label:"Good",               reply:"Glad to hear it 😊"},
+    {id:"okay",     label:"Okay-ish",           reply:"Okay-ish is honest. Thank you for telling me."},
+    {id:"confused", label:"Confused",           reply:"Confused is exactly why we're here. By the end, things will feel clearer."},
+    {id:"stressed", label:"Stressed, honestly", reply:"I hear you. Let's go slowly. Nothing here is a test, and you can stop any time."}
+  ],
+
+  /* "What feels heaviest right now?" Pick any. Each reply is shown when picked. */
+  worries: [
+    {id:"paths",    icon:"🔀", label:"Too many paths, can't choose",         reply:"Having several interests isn't confusion. It usually means you could do well in more than one direction."},
+    {id:"family",   icon:"👪", label:"Family expects something specific",    reply:"Your family wants you safe and respected. We'll look for a path that gives them that and still feels like yours."},
+    {id:"earn",     icon:"💰", label:"I need to start earning soon",         reply:"Needing to earn isn't a weakness. We'll favour paths that pay from the first year."},
+    {id:"behind",   icon:"⏳", label:"My friends are already ahead",         reply:"Careers aren't a race with one finish line. Plenty of people find their path at 25, 30 or later."},
+    {id:"marriage", icon:"💍", label:"Marriage or life-timing pressure",     reply:"Your career plan can bend around marriage and family. We'll plan for it, not against it."},
+    {id:"unknown",  icon:"❓", label:"I don't know what these jobs involve",  reply:"That's exactly what we'll fix: you'll see the real day-to-day work, not just job titles."},
+    {id:"english",  icon:"🗣️", label:"I'm not confident in English",         reply:"Lots of successful people think in their own language first. Our mentors speak yours."},
+    {id:"gap",      icon:"🕳️", label:"I have a gap or failed attempts",       reply:"A gap or a failed attempt is part of your story, not the end of it."}
+  ],
+
+  /* Interest chips. Each adds its tags. */
+  interests: [
+    {id:"puzzles",  icon:"🧩", label:"Solving puzzles",             tags:["investigate"]},
+    {id:"helping",  icon:"🤝", label:"Helping people",              tags:["people","serve"]},
+    {id:"making",   icon:"🎨", label:"Making things",               tags:["create","build"]},
+    {id:"organise", icon:"📋", label:"Organising",                  tags:["organise"]},
+    {id:"explain",  icon:"🗣️", label:"Explaining things",           tags:["explain"]},
+    {id:"how",      icon:"🔍", label:"Finding out how things work", tags:["tech","build"]},
+    {id:"numbers",  icon:"📊", label:"Numbers and money",           tags:["numbers"]},
+    {id:"lead",     icon:"🧭", label:"Leading a group",             tags:["lead"]}
+  ],
+
+  /* "Would you rather" cards for work style. "Both" adds half of each.
+     focus: +1 quiet focus, -1 out with people. earn: +1 earn soon, -1 happy to wait. */
+  wyr: [
+    {a:{icon:"🕵️", t:"Crack a puzzle quietly",          d:"Hours at a desk following clues until it finally clicks.",  tags:["investigate"], focus:1},
+     b:{icon:"🚓", t:"Be out among people",             d:"On your feet, talking to people, making quick calls.",      tags:["people","serve"], focus:-1}},
+    {a:{icon:"🔧", t:"Fix how a machine works",         d:"Find out why something broke and make it work again.",       tags:["tech","build"], focus:1},
+     b:{icon:"🫶", t:"Help someone sort out a problem", d:"Listen, guide and see their relief when it's solved.",       tags:["people"], focus:-1}},
+    {a:{icon:"📊", t:"Find the story in numbers",       d:"Spot the pattern in a big table that everyone else missed.", tags:["numbers","investigate"], focus:1},
+     b:{icon:"🎨", t:"Design how something looks",      d:"Make a screen, a poster or a room feel just right.",          tags:["create"]}},
+    {a:{icon:"🗂️", t:"A steady, planned routine",       d:"Know what your week looks like and do it really well.",      tags:["organise"]},
+     b:{icon:"🎒", t:"Something new every day",         d:"New places, new problems, never quite the same.",            tags:["create","lead"], focus:-1}},
+    {a:{icon:"🧭", t:"Lead and decide",                 d:"Take charge of a team and make the big calls.",              tags:["lead","serve"], focus:-1},
+     b:{icon:"🎓", t:"Be the expert others ask",        d:"Know your subject so well that people come to you.",         tags:["explain","tech"], focus:1}},
+    {a:{icon:"💼", t:"Earn steadily, soon",             d:"Start earning within a year and grow step by step.",         tags:[], earn:1},
+     b:{icon:"🏔️", t:"A bigger dream, a longer wait",   d:"Years of preparation for one big goal.",                     tags:["serve"], earn:-1}}
+  ],
+
+  /* Careers Step Up can explain and plan. aliases = words a visitor might type.
+     facts: four [label, value] pairs. career/study: [year from now (0–5), text] for the life planner.
+     tasks: the first 3 are "this week", the rest "next weeks". */
+  roles: [
+    {id:"soc", icon:"🛡️", title:"Cyber Security Lead (SOC Manager)", short:"SOC Lead", from:"Cyber security",
+     aliases:["cyber","security","soc","hacking","hacker","ethical hack","infosec"],
+     tags:["investigate","tech","lead"], traits:["planning","detail"], earnSoon:true,
+     does:["Lead a team that spots and stops attacks on a company","Decide how to respond when something breaks"],
+     skills:["Networking","Linux","SIEM tools","Incident response","Team lead"],
+     facts:[["First job","SOC Analyst, ~₹3.5–6 LPA"],["Pay as a lead","₹25–40 LPA (approx.)"],["Time to lead","5–7 years"],["Earning while learning","Yes, from year 1"]],
+     career:[[0,"Skills + labs"],[1,"SOC Analyst L1"],[2,"L2 · Incident responder"],[4,"Team lead"],[5,"SOC Manager 🎯"]],
+     study:[[1,"Security+ or similar cert"],[3,"Part-time Master's (optional)"]],
+     tasks:["Watch a \"day in the life of a SOC analyst\" video (15 min)","Finish one free beginner networking lab","Join the Saturday 11 AM session and ask one question","Learn 20 everyday Linux commands","Talk to a mentor who works in security"]},
+    {id:"forensics", icon:"🧾", title:"Digital Forensics Specialist", short:"Forensics", from:"Cyber security",
+     aliases:["forensic","cyber crime","evidence"],
+     tags:["investigate","tech","numbers"], traits:["detail","logic"], earnSoon:true,
+     does:["Recover evidence from phones, laptops and networks","Write reports that hold up in an investigation or court"],
+     skills:["File systems","Forensics tools","Networking","Report writing","Patience"],
+     facts:[["First job","~₹3–5 LPA (approx.)"],["Senior pay","₹15–30 LPA (approx.)"],["Openings for freshers","Fewer; a cert or MSc helps"],["Earning while learning","Yes, once you're in"]],
+     career:[[0,"Basics + a forensics cert"],[1,"Junior analyst"],[3,"Forensics analyst"],[5,"Senior investigator 🎯"]],
+     study:[[1,"Forensics certification"],[2,"MSc Digital Forensics (optional)"]],
+     tasks:["Read how a real cyber-crime case was solved (20 min)","Install a free forensics tool and open a sample disk image","Join the Saturday 11 AM session and ask one question","List 3 companies or agencies that hire forensics analysts","Talk to a mentor who works in security"]},
+    {id:"ips", icon:"👮", title:"IPS Officer", short:"IPS", from:"UPSC civil services",
+     aliases:["ips","police","upsc","civils","civil service"],
+     tags:["serve","lead","people","investigate"], traits:["persistence","planning"], govt:true, earnSoon:false,
+     does:["Lead the police in a district: law and order, crime, public safety","Make fast decisions under public pressure"],
+     skills:["Leadership","Law","Physical fitness","Calm under pressure","General studies"],
+     facts:[["Starting pay","₹56,100 basic + allowances"],["Time to get in","2–4 years of preparation"],["Selection odds","About 1 in 1,000 applicants"],["Earning while preparing","Usually no"]],
+     career:[[0,"Prelims preparation"],[1,"Prelims + Mains"],[2,"Interview · selection"],[3,"Training"],[4,"ASP posting 🎯"]],
+     study:[[0,"Optional subject chosen"]],
+     tasks:["Read this year's UPSC prelims syllabus once, end to end","Try 20 questions from last year's prelims paper, no pressure","Read one newspaper editorial a day for 5 days","Talk to your family about a preparation budget and timeline","Talk to someone who has attempted UPSC"]},
+    {id:"ias", icon:"🏛️", title:"IAS Officer", short:"IAS", from:"UPSC civil services",
+     aliases:["ias","upsc","civils","civil service","collector"],
+     tags:["serve","lead","organise","people"], traits:["persistence","planning"], govt:true, earnSoon:false,
+     does:["Run a district's administration: schemes, budgets, emergencies","Turn government policy into work on the ground"],
+     skills:["Leadership","Policy","Writing","Decision making","General studies"],
+     facts:[["Starting pay","₹56,100 basic + allowances"],["Time to get in","2–4 years of preparation"],["Selection odds","About 1 in 1,000 applicants"],["Earning while preparing","Usually no"]],
+     career:[[0,"Prelims preparation"],[1,"Prelims + Mains"],[2,"Interview · selection"],[3,"Training"],[4,"Sub-collector 🎯"]],
+     study:[[0,"Optional subject chosen"]],
+     tasks:["Read this year's UPSC prelims syllabus once, end to end","Try 20 questions from last year's prelims paper, no pressure","Read one newspaper editorial a day for 5 days","Talk to your family about a preparation budget and timeline","Talk to someone who has attempted UPSC"]},
+    {id:"bankpo", icon:"🏦", title:"Bank Probationary Officer (PO)", short:"Bank PO", from:"Bank exams",
+     aliases:["bank","po","sbi","ibps","banking"],
+     tags:["numbers","organise","people"], traits:["logic","persistence"], govt:true, earnSoon:true,
+     does:["Manage customers, loans and accounts at a branch","Grow into branch manager and beyond"],
+     skills:["Quantitative aptitude","Reasoning","English","Customer handling","Banking basics"],
+     facts:[["Starting pay","₹48,480 basic + allowances (SBI)"],["Preparation","6–18 months"],["Selection","Competitive; several attempts are common"],["Earning while preparing","Possible with a job"]],
+     career:[[0,"Exam preparation"],[1,"PO selection · training"],[2,"Assistant manager"],[4,"Branch manager 🎯"]],
+     study:[[2,"JAIIB / CAIIB banking exams"]],
+     tasks:["Read the latest SBI PO notification and exam pattern","Take one free aptitude mock test (30 min)","Join the Saturday 11 AM session and ask one question","Make a 3-month study timetable","Talk to someone who works in a bank"]},
+    {id:"data", icon:"📊", title:"Data Analyst → Analytics Lead", short:"Data Lead", from:"Data analytics",
+     aliases:["data","analyst","analytics","excel","sql","power bi","tableau"],
+     tags:["numbers","investigate","tech"], traits:["logic","detail"], earnSoon:true,
+     does:["Turn messy data into answers that help a business decide","Build dashboards and explain what the numbers mean"],
+     skills:["Excel","SQL","Power BI or Tableau","Python basics","Storytelling"],
+     facts:[["First job","~₹3.5–6 LPA (approx.)"],["Pay as a lead","₹20–35 LPA (approx.)"],["Time to job-ready","About 4–6 months"],["Earning while learning","Yes, from year 1"]],
+     career:[[0,"Excel + SQL + a project"],[1,"Data Analyst"],[3,"Senior Analyst"],[5,"Analytics Lead 🎯"]],
+     study:[[1,"Power BI or Tableau cert"],[3,"Statistics course (optional)"]],
+     tasks:["Clean a small dataset in Excel or Google Sheets","Learn 5 basic SQL queries","Join the Saturday 11 AM session and ask one question","Build one simple dashboard","Talk to a mentor who works with data"]},
+    {id:"fullstack", icon:"💻", title:"Software Developer → Tech Lead", short:"Tech Lead", from:"Software development",
+     aliases:["software","developer","coding","programmer","full stack","fullstack","web dev","frontend","backend","it job"],
+     tags:["tech","build","create"], traits:["logic","persistence"], earnSoon:true,
+     does:["Build the apps and websites people use every day","Fix bugs, ship features and work with a team"],
+     skills:["JavaScript","React","A backend language","Databases","Git"],
+     facts:[["First job","~₹3.5–7 LPA (approx.)"],["Pay as a lead","₹20–40 LPA (approx.)"],["Time to job-ready","About 4–5 months"],["Earning while learning","Yes, from year 1"]],
+     career:[[0,"Learn + build 2 projects"],[1,"Junior Developer"],[3,"Developer"],[5,"Tech Lead 🎯"]],
+     study:[[2,"Cloud certification (optional)"]],
+     tasks:["Build one small web page with HTML and CSS","Put it on GitHub","Join the Saturday 11 AM session and ask one question","Learn JavaScript basics: variables, loops, functions","Talk to a mentor who works as a developer"]},
+    {id:"uiux", icon:"🎨", title:"UI/UX Designer → Design Lead", short:"Design Lead", from:"Design",
+     aliases:["design","ui","ux","designer","figma","graphic"],
+     tags:["create","people","tech"], traits:["detail","planning"], earnSoon:true,
+     does:["Design apps and websites that are easy and pleasant to use","Talk to users and turn what they need into screens"],
+     skills:["Figma","User research","Visual design","Prototyping","Communication"],
+     facts:[["First job","~₹3.5–6 LPA (approx.)"],["Pay as a lead","₹18–35 LPA (approx.)"],["Time to job-ready","About 4–6 months"],["Earning while learning","Yes, from year 1"]],
+     career:[[0,"Figma + 3 case studies"],[1,"Junior Designer"],[3,"Product Designer"],[5,"Design Lead 🎯"]],
+     study:[[2,"UX research course (optional)"]],
+     tasks:["Redesign one screen of an app you use, in Figma","Write down 3 things that annoy you in that app","Join the Saturday 11 AM session and ask one question","Study one good design case study","Talk to a mentor who works in design"]},
+    {id:"architect", icon:"🎓", title:"Security Architect (with a Master's)", short:"Architect", from:"Master's",
+     aliases:["master","masters","ms ","mtech","m.tech","higher studies","abroad","postgrad"],
+     tags:["tech","build","lead"], traits:["planning","logic"], earnSoon:false,
+     does:["Design how a company's systems stay secure","Advise leaders on risk and new technology"],
+     skills:["Cloud","System design","Cryptography","Communication","Security"],
+     facts:[["Pay at the top","₹35–60 LPA (approx.)"],["Study cost","₹3–30 L (India vs abroad)"],["Time to reach","8–10 years"],["Earning while studying","Part-time options"]],
+     career:[[0,"Entrance prep (GATE / GRE)"],[2,"Master's done · engineer"],[4,"Senior engineer"],[5,"Architect 🎯"]],
+     study:[[1,"Master's (2 years)"]],
+     tasks:["List 5 universities and compare total cost","Check what entrance each needs (GATE, GRE, IELTS)","Join the Saturday 11 AM session and ask one question","Talk to someone who did a Master's","Make a savings or loan plan with your family"]}
+  ],
+
+  /* Quick-add chips for "Which careers are you thinking about?" */
+  popular: ["Cyber security","UPSC (IAS / IPS)","Master's","Data analyst","Software developer","Bank PO","UI/UX design"],
+
+  /* Used when a visitor types a career we don't have details for yet. */
+  customRole: {
+    tasks:["Find 3 people who do this job and read their profiles","Write down what a normal working day looks like for them","Join the Saturday 11 AM session and ask one question","List the skills that keep coming up","Talk to Varsha about a plan for it"],
+    career:[[0,"Learn the basics"],[1,"First role"],[3,"Grow"],[5,"Your goal 🎯"]]
+  },
+
+  /* Shown if someone types something that sounds like they may be in danger. */
+  support: {
+    text:"It sounds like you're carrying a lot right now. You don't have to carry it alone. Please talk to someone today.",
+    name:"Tele-MANAS, free and 24×7, in many Indian languages",
+    phones:["14416","1-800-891-4416"]
+  }
+};
